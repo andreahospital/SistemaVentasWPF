@@ -29,7 +29,7 @@ namespace SistemaVentasWPF
 
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:44331/");
+                cliente.BaseAddress = new Uri("https://localhost:44322/");
                 cliente.DefaultRequestHeaders.Accept.Clear();
                 cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -47,7 +47,7 @@ namespace SistemaVentasWPF
             using (var cliente = new HttpClient())
             {
 
-                cliente.BaseAddress = new Uri("https://localhost:44331/");
+                cliente.BaseAddress = new Uri("https://localhost:44322/");
 
 
                 cliente.DefaultRequestHeaders.Accept.Clear();

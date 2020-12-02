@@ -87,6 +87,11 @@ namespace SistemaVentasWPF
             MainWindow menu = new MainWindow();
             menu.Hide();
         }
+
+        private void TextBlock_PreviewMouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
     }
 
 }
