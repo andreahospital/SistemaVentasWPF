@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaVentasWPF"
        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:wpfanimated="http://wpfanimatedgif.codeplex.com"
         Title="MainWindow" Height="450" Width="800" Icon="Assets/img_home.png">
     <Window.Resources>
 
@@ -157,21 +159,26 @@
 
         <Grid Background="Black">
 
-           
+
 
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
 
-                <Grid.Background>
+                <!--<Grid.Background>
 
                     <ImageBrush x:Name="img_bg"
                                 ImageSource="Assets/img_background.gif"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
+                </Grid.Background>-->
+
+                <Image x:Name="img_bg" 
+                    wpfanimated:ImageBehavior.AnimatedSource="Assets/img_background.gif"
+               wpfanimated:ImageBehavior.RepeatBehavior="10"
+               wpfanimated:ImageBehavior.AnimateInDesignMode="False"
+               wpfanimated:ImageBehavior.AutoStart="True" Margin="0,0,-0.4,0" 
+                       Stretch="Fill"/>
 
             </Grid>
-
-            
 
             <Grid>
 
