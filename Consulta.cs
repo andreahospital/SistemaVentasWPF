@@ -18,5 +18,14 @@ namespace SistemaVentasWPF
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Comentario { get; set; }
+
+        public override string ToString()
+        {
+            return this.Comentario;
+        }
+
     }
+
+
+
 }
