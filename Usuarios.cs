@@ -11,7 +11,10 @@ namespace SistemaVentasWPF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
+
     public partial class Usuarios
     {
         public int UserID { get; set; }
@@ -21,5 +24,57 @@ namespace SistemaVentasWPF
         public string Apellido { get; set; }
         public string Cargo { get; set; }
         public string Email { get; set; }
+        public static async Task<bool> AgregarUsuario(Usuarios usu)
+        {
+
+            using (var cliente = new HttpClient())
+            {
+                cliente.BaseAddress = new Uri("https://localhost:44331/");
+                cliente.DefaultRequestHeaders.Accept.Clear();
+                cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await cliente.PostAsJsonAsync("api/Usuarios", usu);
+                return response.IsSuccessStatusCode;
+            }
+        }
+
+        public static async Task<List<Usuarios>> ObtenerUsuario()
+        {
+
+            List<Usuarios> lstUsuario = new List<Usuarios>();
+
+
+            using (var cliente = new HttpClient())
+            {
+
+                cliente.BaseAddress = new Uri("https://localhost:44331/");
+
+
+                cliente.DefaultRequestHeaders.Accept.Clear();
+
+                cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                HttpResponseMessage response = await cliente.GetAsync("api/Usuarios");
+
+
+
+
+                if (response.IsSuccessStatusCode)
+                {
+
+                    lstUsuario = await response.Content.ReadAsAsync<List<Usuarios>>();
+                }
+            }
+
+
+            return lstUsuario;
+        }
+
+        public override string ToString()
+        {
+            return this.Nombre;
+        }
+
     }
 }

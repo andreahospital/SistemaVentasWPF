@@ -28,7 +28,7 @@ namespace SistemaVentasWPF
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
-            // Set tooltip visibility
+            
 
             if (Tg_Btn.IsChecked == true)
             {
@@ -73,9 +73,9 @@ namespace SistemaVentasWPF
 
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Usuarioswpf usuario = new Usuarioswpf();
+            Usuarioswpf usuario = new Usuarioswpf();
 
-            //usuario.Show();
+            usuario.Show();
             MainWindow menu = new MainWindow();
             menu.Hide();
         }
